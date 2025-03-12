@@ -12,7 +12,7 @@ jobs:
    test:
      runs-on: ubuntu-latest
      steps:
-     - name: set env
+     - name: set ENV_ONE
        run: echo "ENV_ONE=$(echo $"v0.0.1" | cut -c 2-)" >> $GITHUB_ENV
      - name: check ENV_ONE
-       run: echo $ENV_ONE
+       run: echo ${{ env.ENV_ONE }}
