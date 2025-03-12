@@ -29,8 +29,3 @@ jobs:
      - name: ser Lin postfix
        run: echo "LINUX=$(echo $"-linux.gtk.x86_64.tar.gz")" >> $GITHUB_ENV
 
-     - name: set linux build name
-       run: echo "LINUX_BUILD=${{ env.PREFIX_2}}${{ env.RELEASE_VERSION }}${{ env.LINUX }}" >> $GITHUB_ENV
-
-     - name: check linux build name
-       run: echo ${{ env.LINUX_BUILD }}
