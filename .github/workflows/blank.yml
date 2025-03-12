@@ -28,7 +28,7 @@ jobs:
        run: echo "PREFIX_2=$(echo $"pgCodeKeeper-")" >> $GITHUB_ENV
 
      - name: set linux build name
-       run: echo "LINUX_BUILD=${{ env.PREFIX_2}}${{ env.RELEASE_VERSION }}"-linux.gtk.x86_64.tar.gz"" >> $GITHUB_ENV
+       run: echo "LINUX_BUILD=${{ env.PREFIX_2}}${{ env.RELEASE_VERSION }}$"-linux.gtk.x86_64.tar.gz"" >> $GITHUB_ENV
 
      - name: check linux build name
        run: echo ${{ LINUX_BUILD }}
