@@ -29,3 +29,6 @@ jobs:
 
      - name: set linux build name
        run: echo "LINUX_BUILD=${{ env.PREFIX_2}}${{ env.RELEASE_VERSION }}"-linux.gtk.x86_64.tar.gz""
+
+     - name: check linux build name
+       run: echo ${{ LINUX_BUILD }}
