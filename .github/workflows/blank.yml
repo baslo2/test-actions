@@ -24,3 +24,8 @@ jobs:
        run: echo "CONCAT=${{ env.PREFIX }}${{ env.ENV_ONE }}" >> $GITHUB_ENV
      - name: chek CONCAT
        run: echo ${{ env.CONCAT }}
+     - name: Set prefix
+       run: echo "PREFIX_2=$(echo $"pgCodeKeeper-")" >> $GITHUB_ENV
+
+     - name: set linux build name
+       run: echo "LINUX_BUILD=${{ env.PREFIX_2}}${{ env.RELEASE_VERSION }}"-linux.gtk.x86_64.tar.gz""
