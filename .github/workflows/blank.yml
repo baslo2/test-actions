@@ -21,6 +21,6 @@ jobs:
      - name: check PREFIX 
        run: echo ${{ env.PREFIX }}
      - name: set CONCAT
-       run: echo "CONCAT=$("${{ env.PREFIX }} ${{ env.ENV_ONE }}")" >> $GITHUB_ENV
+       run: echo "CONCAT=$(${{ env.PREFIX }} ${{ env.ENV_ONE }})" >> $GITHUB_ENV
      - name: chek CONCAT
        run: echo ${{ env.CONCAT }}
