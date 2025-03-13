@@ -12,27 +12,27 @@ jobs:
      runs-on: ubuntu-latest
      steps:
      - name: set ENV_ONE
-       run: echo "ENV_ONE=$(echo $"v0.0.1" | cut -c 2-)" >> $GITHUB_ENV
+       run: echo "ENV_ONE=$(echo $"v0.0.1" | cut -c 2-)" >> "$GITHUB_OUTPUT"
      - name: set prefix env
-       run: echo "PREFIX=$(echo $"prifix")" >> $GITHUB_ENV
+       run: echo "PREFIX=$(echo $"prifix")" >> "$GITHUB_OUTPUT"
      - name: check ENV_ONE
-       run: echo ${{ env.ENV_ONE }}
+       run: echo $ENV_ONE
      - name: check PREFIX 
-       run: echo ${{ env.PREFIX }}
+       run: echo $env.PREFIX
      - name: set CONCAT
-       run: echo "CONCAT=${{ env.PREFIX }}${{ env.ENV_ONE }}" >> $GITHUB_ENV
+       run: echo "CONCAT=$PREFIX$ENV_ONE" >> "$GITHUB_OUTPUT"
      - name: chek CONCAT
-       run: echo ${{ env.CONCAT }}
+       run: echo $CONCAT
      - name: Set prefix
-       run: echo "PREFIX_2=$(echo $"pgCodeKeeper-")" >> $GITHUB_ENV
+       run: echo "PREFIX_2=$(echo $"pgCodeKeeper-")" >> "$GITHUB_OUTPUT"
      - name: ser Lin postfix
-       run: echo "LINUX=$(echo $"-linux.gtk.x86_64.tar.gz")" >> $GITHUB_ENV
+       run: echo "LINUX=$(echo $"-linux.gtk.x86_64.tar.gz")" >> "$GITHUB_OUTPUT"
 
      - name: set linux build name
-       run: echo "LINUX_BUILD=${{ env.PREFIX_2}}${{ env.ENV_ONE }}-linux.gtk.x86_64.tar.gz" >> $GITHUB_ENV
+       run: echo "LINUX_BUILD=$PREFIX_2$ENV_ONE-linux.gtk.x86_64.tar.gz" >> $GITHUB_ENV
 
      - name: check linux build name
-       run: echo ${{ env.LINUX_BUILD }}
+       run: echo $LINUX_BUILD
 
      - name: Set color
        id: color-selector
