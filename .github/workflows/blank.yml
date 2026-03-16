@@ -1,55 +1,55 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-on:
-  push:
-    tags:
-      -'v*.*.*'
-
-
-jobs:
-   test:
-     runs-on: ubuntu-latest
-     steps:
-     - name: set ENV_ONE
-       run: echo "ENV_ONE=$(echo $"v0.0.1" | cut -c 2-)" >> "$GITHUB_OUTPUT"
-     - name: set prefix env
-       run: echo "PREFIX=$(echo $"prifix")" >> "$GITHUB_OUTPUT"
-     - name: check ENV_ONE
-       run: echo $ENV_ONE
-     - name: check PREFIX 
-       run: echo $env.PREFIX
-     - name: set CONCAT
-       run: echo "CONCAT=$PREFIX$ENV_ONE" >> "$GITHUB_OUTPUT"
-     - name: chek CONCAT
-       run: echo $CONCAT
-     - name: Set prefix
-       run: echo "PREFIX_2=$(echo $"pgCodeKeeper-")" >> "$GITHUB_OUTPUT"
-     - name: ser Lin postfix
-       run: echo "LINUX=$(echo $"-linux.gtk.x86_64.tar.gz")" >> "$GITHUB_OUTPUT"
-
-     - name: set linux build name
-       run: echo "LINUX_BUILD=$PREFIX_2$ENV_ONE-linux.gtk.x86_64.tar.gz" >> $GITHUB_ENV
-
-     - name: check linux build name
-       run: echo $LINUX_BUILD
-
-     - name: Set color
-       id: color-selector
-       run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
-     - name: Get color
-       env:
-         SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
-       run: echo "The selected color is $SELECTED_COLOR"
-
-     - name: create GitHub release
-       id: create_release
-       uses: comnoco/create-release-action@v2.0.5
-       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-       with:
-          tag_name: v0.0.1
-          release_name: test 1
-          draft: false
-          prerelease: false
+## This is a basic workflow to help you get started with Actions
+#
+#name: CI
+#
+#on:
+#  push:
+#    tags:
+#      -'v*.*.*'
+#
+#
+#jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: set ENV_ONE
+#       run: echo "ENV_ONE=$(echo $"v0.0.1" | cut -c 2-)" >> "$GITHUB_OUTPUT"
+#     - name: set prefix env
+#       run: echo "PREFIX=$(echo $"prifix")" >> "$GITHUB_OUTPUT"
+#     - name: check ENV_ONE
+#       run: echo $ENV_ONE
+#     - name: check PREFIX
+#       run: echo $env.PREFIX
+#     - name: set CONCAT
+#       run: echo "CONCAT=$PREFIX$ENV_ONE" >> "$GITHUB_OUTPUT"
+#     - name: chek CONCAT
+#       run: echo $CONCAT
+#     - name: Set prefix
+#       run: echo "PREFIX_2=$(echo $"pgCodeKeeper-")" >> "$GITHUB_OUTPUT"
+#     - name: ser Lin postfix
+#       run: echo "LINUX=$(echo $"-linux.gtk.x86_64.tar.gz")" >> "$GITHUB_OUTPUT"
+#
+#     - name: set linux build name
+#       run: echo "LINUX_BUILD=$PREFIX_2$ENV_ONE-linux.gtk.x86_64.tar.gz" >> $GITHUB_ENV
+#
+#     - name: check linux build name
+#       run: echo $LINUX_BUILD
+#
+#     - name: Set color
+#       id: color-selector
+#       run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+#     - name: Get color
+#       env:
+#         SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+#       run: echo "The selected color is $SELECTED_COLOR"
+#
+#     - name: create GitHub release
+#       id: create_release
+#       uses: comnoco/create-release-action@v2.0.5
+#       env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       with:
+#          tag_name: v0.0.1
+#          release_name: test 1
+#          draft: false
+#          prerelease: false
