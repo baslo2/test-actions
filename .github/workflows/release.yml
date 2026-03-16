@@ -3,7 +3,7 @@ name: Release Workflow
 on:
   push:
     tag:
-      -'v*.*.*'
+      - 'v*.*.*'
 
 jobs:
    build:
