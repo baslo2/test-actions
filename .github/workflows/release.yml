@@ -11,13 +11,17 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
+
+      - name: set version
+        run: echo "RELEASE_VERSION=$(echo ${GITHUB_REF#refs/*/} | cut -c 2-)" >> $GITHUB_ENV
+
       - name: create GitHub release
         id: create_release
         uses: comnoco/create-release-action@v2.0.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: test 1
+          tag_name: v${{ env.RELEASE_VERSION }}
+          release_name: test 1 ${{ env.RELEASE_VERSION }}
           draft: false
           prerelease: false
