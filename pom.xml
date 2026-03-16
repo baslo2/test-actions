@@ -39,7 +39,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>test_backdoor.Main</mainClass>
+                            <mainClass>test_action.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -56,7 +56,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>test_backdoor.Main</mainClass>
+                            <mainClass>test_action.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
