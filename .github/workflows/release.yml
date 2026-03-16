@@ -19,6 +19,7 @@ jobs:
         id: create_release
         uses: comnoco/create-release-action@v2.0.5
         env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ env.RELEASE_VERSION }}
